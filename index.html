@@ -1,2 +1,73 @@
-Infos folgen ...
-<a href="https://wa.me/436644308853?text=Anmeldung%20zum%20Riesenwuzzlerturnier%0ATeamname%3A%20%0AAnsprechperson%3A">Hier anmelden</a>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmeldung Riesenwuzzlerturnier</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 500px;
+      margin-top: 50px;
+    }
+    .logo {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #6c757d;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    button.btn-success {
+        height: 3.5rem;
+        font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container text-center">
+    <img class="logo" src="logo.png"></img>
+    <h1 class="mb-0">Anmeldung für Riesenwuzzlerturnier</h1>
+    <h2>mit Spritzerwertung</h2>
+    <p class="mb-4">am Sonntag 10.8. um 14:00 Uhr</p>
+
+    <form id="anmeldungForm">
+      <div class="mb-3 text-start">
+        <div class="form-floating">
+            <input type="text" class="form-control" id="teamname" required placeholder="Teamname">
+            <label for="teamname">Teamname</label>
+        </div>
+      </div>
+      <div class="mb-3 text-start">
+        <div class="form-floating">
+            <input type="text" class="form-control" id="ansprechperson" required placeholder="Ansprechperson">
+            <label for="ansprechperson">Ansprechperson</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Jetzt anmelden</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("anmeldungForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const teamname = encodeURIComponent(document.getElementById("teamname").value);
+      const ansprechperson = encodeURIComponent(document.getElementById("ansprechperson").value);
+
+      const message = `Anmeldung zum Riesenwuzzlerturnier%0ATeamname: ${teamname}%0AAnsprechperson: ${ansprechperson}`;
+      const whatsappLink = `https://wa.me/436644308853?text=${message}`;
+
+      window.open(whatsappLink);
+    });
+  </script>
+</body>
+</html>
